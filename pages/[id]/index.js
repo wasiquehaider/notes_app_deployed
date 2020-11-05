@@ -21,9 +21,12 @@ const Note = ({ note }) => {
   const deleteNote = async () => {
     const noteId = router.query.id;
     try {
-      const deleted = await fetch(`http://localhost:3000/api/notes/${noteId}`, {
-        method: "Delete",
-      });
+      const deleted = await fetch(
+        `unruffled-ramanujan-65889a.netlify.app/api/notes/${noteId}`,
+        {
+          method: "Delete",
+        }
+      );
 
       router.push("/");
     } catch (error) {
@@ -55,7 +58,9 @@ const Note = ({ note }) => {
 };
 
 Note.getInitialProps = async ({ query: { id } }) => {
-  const res = await fetch(`http://localhost:3000/api/notes/${id}`);
+  const res = await fetch(
+    `unruffled-ramanujan-65889a.netlify.app/api/notes/${id}`
+  );
   const { data } = await res.json();
 
   return { note: data };

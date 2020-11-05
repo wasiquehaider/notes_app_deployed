@@ -26,7 +26,7 @@ const EditNote = ({ note }) => {
   const updateNote = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/notes/${router.query.id}`,
+        `unruffled-ramanujan-65889a.netlify.app/api/notes/${router.query.id}`,
         {
           method: "PUT",
           headers: {
@@ -112,7 +112,9 @@ const EditNote = ({ note }) => {
 };
 
 EditNote.getInitialProps = async ({ query: { id } }) => {
-  const res = await fetch(`http://localhost:3000/api/notes/${id}`);
+  const res = await fetch(
+    `unruffled-ramanujan-65889a.netlify.app/api/notes/${id}`
+  );
   const { data } = await res.json();
 
   return { note: data };
